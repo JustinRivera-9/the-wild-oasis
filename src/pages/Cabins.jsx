@@ -9,6 +9,8 @@ function Cabins() {
     getCabins().then((data) => setCabin(data[0]));
   }, []);
 
+  if (!cabin) return <h1>Loading</h1>;
+
   return (
     <Row type="horizontal">
       <Heading as="h1">All cabins</Heading>
