@@ -15,5 +15,5 @@ export const deleteCabin = async (id) => {
   const { error } = await supabase.from("cabins").delete().eq("id", id);
 
   if (error)
-    throw new Error("Problems dleeting cabin. Please refresh and try again");
+    throw new Error("Problems deleting cabin. Please refresh and try again");
 };
