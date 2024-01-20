@@ -66,12 +66,13 @@ function CreateCabinForm() {
   });
 
   const onSubmit = (data) => mutate(data);
-  const onError = (errors) => console.log(errors);
+  const onError = (errors) => {};
 
   return (
     <Form onSubmit={handleSubmit(onSubmit, onError)}>
       <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
+          disabled={isCreating}
           type="text"
           id="name"
           {...register("name", {
@@ -82,6 +83,7 @@ function CreateCabinForm() {
 
       <FormRow label="Maximum capacity" error={errors?.maxCapacity?.message}>
         <Input
+          disabled={isCreating}
           type="number"
           id="maxCapacity"
           {...register("maxCapacity", {
@@ -96,6 +98,7 @@ function CreateCabinForm() {
 
       <FormRow label="Regular price" error={errors?.regularPrice?.message}>
         <Input
+          disabled={isCreating}
           type="number"
           id="regularPrice"
           {...register("regularPrice", {
@@ -110,6 +113,7 @@ function CreateCabinForm() {
 
       <FormRow label="Discount" error={errors?.discount?.message}>
         <Input
+          disabled={isCreating}
           type="number"
           id="discount"
           defaultValue={0}
@@ -127,6 +131,7 @@ function CreateCabinForm() {
         error={errors?.description?.message}
       >
         <Textarea
+          disabled={isCreating}
           type="number"
           id="description"
           defaultValue=""
