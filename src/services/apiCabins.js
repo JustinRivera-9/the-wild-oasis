@@ -17,3 +17,12 @@ export const deleteCabin = async (id) => {
   if (error)
     throw new Error("Problems deleting cabin. Please refresh and try again");
 };
+
+export const createCabin = async (newCabin) => {
+  const { data, error } = await supabase
+    .from("cabins")
+    .insert([newCabin])
+    .select();
+
+  if (error) throw new Error("Cabin could not be created. Please try again.");
+};
